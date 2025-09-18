@@ -8,50 +8,49 @@ const nextConfig = {
   },
   images: {
     unoptimized: true,
-    domains: ['vercel.app', 'images.unsplash.com'],
-    formats: ['image/webp', 'image/avif'],
+    domains: ["vercel.app", "images.unsplash.com"],
+    formats: ["image/webp", "image/avif"],
   },
   // Optimisations pour Vercel
   experimental: {
-    optimizeCss: true,
-    optimizePackageImports: ['lucide-react', '@radix-ui/react-icons'],
+    optimizePackageImports: ["lucide-react", "@radix-ui/react-icons"],
   },
   // Configuration pour le déploiement Vercel
-  output: 'standalone',
+  output: "standalone",
   poweredByHeader: false,
   compress: true,
   // Configuration des redirections
   async redirects() {
     return [
       {
-        source: '/home',
-        destination: '/',
+        source: "/home",
+        destination: "/",
         permanent: true,
       },
-    ]
+    ];
   },
   // Configuration des headers de sécurité
   async headers() {
     return [
       {
-        source: '/(.*)',
+        source: "/(.*)",
         headers: [
           {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff',
+            key: "X-Content-Type-Options",
+            value: "nosniff",
           },
           {
-            key: 'X-Frame-Options',
-            value: 'DENY',
+            key: "X-Frame-Options",
+            value: "DENY",
           },
           {
-            key: 'X-XSS-Protection',
-            value: '1; mode=block',
+            key: "X-XSS-Protection",
+            value: "1; mode=block",
           },
         ],
       },
-    ]
+    ];
   },
-}
+};
 
-export default nextConfig
+export default nextConfig;
